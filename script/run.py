@@ -32,7 +32,7 @@ def RTScan_2c_unique_1e8():
     logtime = time.strftime("%y%m%d-%H%M%S")
     output_file = f"log/column2/unique1e8/{logtime}-RTScan-2c.log"
     os.system('make clean')
-    os.system(f'make rtscan_2c DATA_N=1e8 DEBUG_ISHIT_CMP_RAY=0 DEBUG_INFO=0 DISTRIBUTION=0 BUILD_TYPE=Release')
+    os.system(f'make rtscan_2c DATA_N=1e6 DEBUG_ISHIT_CMP_RAY=0 DEBUG_INFO=0 DISTRIBUTION=0 BUILD_TYPE=Release')
     density_list = [10000] # approximate optimal configuration obtained from the experiment
     for density in density_list:
         args = f'-b 2 -w {density} -m {density} -s 1 -p test/scan_cmd_1e8-2c.txt'
@@ -344,8 +344,8 @@ def RTc1_skewed():
 
 # RTScan
 # RTScan_1c_unique_1e8()
-# RTScan_2c_unique_1e8()
-RTScan_3c_unique_1e8()
+RTScan_2c_unique_1e8()
+# RTScan_3c_unique_1e8()
 # RTScan_3c_skewed(encode=1)
 # RTScan_3c_skewed(encode=0)
 # RTScan_3c_2p6()
